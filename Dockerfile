@@ -11,9 +11,9 @@ RUN pip install poetry
 COPY pyproject.toml poetry.lock ./
 
 RUN poetry config virtualenvs.create false && \
-    poetry install --no-dev
-
+    poetry install --only=main --no-root --all-extras
 COPY . .
+
 
 EXPOSE 8000
 
